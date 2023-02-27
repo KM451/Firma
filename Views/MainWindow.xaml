@@ -1,0 +1,240 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Firma"
+        xmlns:local1="clr-namespace:Firma.Helpers"
+        xmlns:resx="clr-namespace:Firma.ViewResources"
+        xmlns:ViewModels="clr-namespace:Firma.ViewModels" x:Class="Firma.MainWindow"
+        mc:Ignorable="d"
+        Title="Firma" Height="450" Width="800" WindowState ="Maximized"  Icon="/ViewResources/Icons/black_24dp.png" >
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </Window.Resources>
+    <!--<Window.DataContext>
+        <ViewModels:MainWindowViewModel/>
+    </Window.DataContext>-->
+    <Window.InputBindings>
+        <KeyBinding Key="K" Modifiers="Ctrl" Command="{Binding NoweZlecenieKompCommand}"/>
+        <KeyBinding Key="T" Modifiers="Ctrl" Command="{Binding NowyKontrahentCommand}"/>
+        <KeyBinding Key="Z" Modifiers="Ctrl" Command="{Binding NoweZlecenieZakupuCommand}"/>
+        <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding NowyProduktCommand}"/>
+        <KeyBinding Key="P" Modifiers="Alt" Command="{Binding ProduktyCommand}"/>
+        <KeyBinding Key="M" Modifiers="Alt" Command="{Binding RaportMonteraCommand}"/>
+        <KeyBinding Key="W" Modifiers="Alt" Command="{Binding RaportZZCommand}"/>
+        <KeyBinding Key="Z" Modifiers="Alt" Command="{Binding ZleceniaZakupuCommand}"/>
+        <KeyBinding Key="K" Modifiers="Alt" Command="{Binding ZleceniaKompletacjiCommand}"/>
+        <KeyBinding Key="T" Modifiers="Alt" Command="{Binding WszyscyKontrahenciCommand}"/>
+        <KeyBinding Key="N" Modifiers="Ctrl" Command="{Binding ZmienWidocznoscPaskaNarzedziCommand}"/>
+        <KeyBinding Key="B" Modifiers="Ctrl" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"/>
+        <KeyBinding Key="O" Modifiers="Alt" Command="{Binding OtworzOknoOCommand}"/> 
+        <KeyBinding Key="S" Modifiers="Alt" Command="{Binding RaportCzasuZKCommand}"/> 
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Style="{StaticResource MenuBar1}">
+            <MenuItem Header ="Plik">
+                <MenuItem Header="{x:Static resx:BaseResources.Drukuj}" InputGestureText="Ctrl+D">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/print_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="{x:Static resx:BaseResources.Zakoncz}" InputGestureText="Ctrl+Q">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/close_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header ="{x:Static resx:BaseResources.Magazyn}">
+                <MenuItem Header="{x:Static resx:BaseResources.Produkty}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/3.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="{x:Static resx:BaseResources.Dodawanie}" Command="{Binding NowyProduktCommand}" InputGestureText="Ctrl+P">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/add_FILL0_wght400_GRAD0_opsz48.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static resx:BaseResources.ListaProduktow}" Command="{Binding ProduktyCommand}" InputGestureText="Alt+P">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/list.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static resx:BaseResources.Zamowienia}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/shopping.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="{x:Static resx:BaseResources.Dodawanie}" Command="{Binding NoweZlecenieZakupuCommand}" InputGestureText="Ctrl+Z">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/add_FILL0_wght400_GRAD0_opsz48.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static resx:BaseResources.ListaZlecen}" Command="{Binding ZleceniaZakupuCommand}" InputGestureText="Alt+Z">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/list.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header ="{x:Static resx:BaseResources.Produkcja}">
+                <MenuItem Header="{x:Static resx:BaseResources.ZleceniaKompletacji}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/kompletacja.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="{x:Static resx:BaseResources.Dodawanie}" Command="{Binding NoweZlecenieKompCommand}" InputGestureText="Ctrl+K">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/add_FILL0_wght400_GRAD0_opsz48.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static resx:BaseResources.ListaZlecen}" Command="{Binding ZleceniaKompletacjiCommand}" InputGestureText="Alt+K">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/list.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header ="{x:Static resx:BaseResources.Kontrahent}">
+                <MenuItem Header="{x:Static resx:BaseResources.Kontrahenci}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/store.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="{x:Static resx:BaseResources.Dodawanie}" Command="{Binding NowyKontrahentCommand}" InputGestureText="Ctrl+T">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/add_FILL0_wght400_GRAD0_opsz48.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static resx:BaseResources.ListaKontrahentow}" Command="{Binding WszyscyKontrahenciCommand}" InputGestureText="Alt+T">
+                        <MenuItem.Icon>
+                            <Image Source="/ViewResources/Icons/list.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="{x:Static resx:BaseResources.Widok}">
+                <MenuItem Header="{Binding TekstMenuPasekBoczny}" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" InputGestureText="Ctrl+B">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/vertical_split_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{Binding TekstMenuPasekNarzedzi}" Command="{Binding ZmienWidocznoscPaskaNarzedziCommand}" InputGestureText="Ctrl+N">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/horizontal_split_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="{x:Static resx:BaseResources.Raporty}">
+                <MenuItem Header="{x:Static resx:BaseResources.RaportMontera}"  InputGestureText="Alt+M" Command="{Binding RaportMonteraCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/import_contacts_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static resx:BaseResources.RaportZZ}"  InputGestureText="Alt+W" Command="{Binding RaportZZCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/import_contacts_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static resx:BaseResources.RaportZK}"  InputGestureText="Alt+S" Command="{Binding RaportCzasuZKCommand}">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/import_contacts_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="{x:Static resx:BaseResources.Informacje}">
+                <MenuItem Header="{x:Static resx:BaseResources.SprDostAkt}"  InputGestureText="Alt+Z">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/browser_updated_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static resx:BaseResources.OProgramie}" Command="{Binding OtworzOknoOCommand}" InputGestureText="Alt+O">
+                    <MenuItem.Icon>
+                        <Image Source="/ViewResources/Icons/info_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource BorderPasek}">
+            <ToolBar Style="{StaticResource ToolBarStandard}" Visibility="{Binding WidocznoscPaskaNarzedzi}">
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding NowyProduktCommand}" ToolTip="{x:Static resx:BaseResources.DodajProdukt}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/ViewResources/Icons/settings_FILL0_wght400_GRAD0_opsz48.png" />
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding ProduktyCommand}" ToolTip="{x:Static resx:BaseResources.OtworzListeProduktow}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/ViewResources/Icons/produkty.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding NoweZlecenieZakupuCommand}" ToolTip="{x:Static resx:BaseResources.DodajZlecenieZakupu}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource ="/ViewResources/Icons/shopping.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding ZleceniaZakupuCommand}" ToolTip="{x:Static resx:BaseResources.OtworzListeZZ}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource ="/ViewResources/Icons/list.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding NoweZlecenieKompCommand}" ToolTip="{x:Static resx:BaseResources.DodajZlecenieKompletacji}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource ="/ViewResources/Icons/kompletacja.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding ZleceniaKompletacjiCommand}" ToolTip="{x:Static resx:BaseResources.OtworzListeZK}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource ="/ViewResources/Icons/list.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding NowyKontrahentCommand}" ToolTip="{x:Static resx:BaseResources.DodajKontrahenta}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource ="/ViewResources/Icons/add_business.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStandard}" Command="{Binding WszyscyKontrahenciCommand}" ToolTip="{x:Static resx:BaseResources.OtworzListeKontr}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource ="/ViewResources/Icons/list.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+            </ToolBar>
+        </Border>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0">
+                <Border DockPanel.Dock="Top"  Style="{StaticResource BorderPaskaB}" Visibility="{Binding WidocznoscMenuBocznego}" >
+                    <HeaderedContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource CommandsTemplate}" Style="{StaticResource MainHCCStyle}"/>
+                </Border>
+                <Button  Template="{DynamicResource ButtonTemplate1}" Content="{Binding TekstButtonaMenu}" Style="{StaticResource ButtonZwinRozw}" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" ToolTip="{x:Static resx:BaseResources.ZwinRozwin}"/>
+            </DockPanel>
+            <Border Grid.Column="1" Grid.ColumnSpan="2">
+                <HeaderedContentControl Content="{Binding Workspaces}" ContentTemplate="{StaticResource WorkspacesTemplate}" 
+                    Style="{StaticResource MainHCCStyle}"/>
+            </Border>
+        </Grid>
+        <Border Grid.Row="3" Style="{StaticResource BorderPasek}">
+            <StatusBar Grid.Row="3" Style="{StaticResource StatusBar1}">
+                <StatusBarItem Style="{StaticResource StatausBarIt1}">
+                    <TextBlock><Run Text="{x:Static resx:BaseResources.AktUz}"/><Run Text=" WSB"/></TextBlock>
+                </StatusBarItem>
+                <StatusBarItem HorizontalContentAlignment="Right">
+                    <Border Style="{StaticResource BorderTimer}">
+                        <local1:WPFTimer IsRunning="True"/>
+                    </Border>
+                </StatusBarItem>
+            </StatusBar>
+        </Border>
+    </Grid>
+</Window>

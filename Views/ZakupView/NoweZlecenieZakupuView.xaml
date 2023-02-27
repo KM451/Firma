@@ -1,0 +1,98 @@
+﻿<local:JedenWszystkieViewBase x:Class="Firma.Views.ZakupView.NoweZlecenieZakupuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             xmlns:local="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source = "../StyleZakladekResources.xaml" />
+    </UserControl.Resources>
+    <Grid Style="{StaticResource GridPodstawowy}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <WrapPanel>
+                <GroupBox Header="{x:Static resx:BaseResources.Dostawca}" Style="{StaticResource GroupBoxSerwis4}">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{x:Static resx:BaseResources.KNN}" Style="{StaticResource LabelR}" />
+                            <TextBox Text="{Binding DaneDostawcy, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZD}" IsReadOnly="True"/>
+                            <Button DockPanel.Dock="Right" Template="{DynamicResource ButtonZnajdz}" Style="{StaticResource ButtonIkonaMala}" ToolTip="{x:Static resx:BaseResources.WybierzDostawce}" Command="{Binding ShowKontrahentCommand}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{x:Static resx:BaseResources.AdresSiedziby}" Style="{StaticResource LabelR}" />
+                            <TextBox Text="{Binding AdresDostawcy}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZD}" IsReadOnly="True"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox DockPanel.Dock="Top" Header="{x:Static resx:BaseResources.ParametryZamowienia}" Style="{StaticResource GroupBoxSerwis4}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="240"/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="{x:Static resx:BaseResources.Transakcja}" Style="{StaticResource LabelStandardowy}" Grid.Row="0" Grid.Column="0"/>
+                        <ComboBox Grid.Row="0" Grid.Column="1"  ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" Style="{StaticResource ComboBoxAuto1}" 
+                                  ItemsSource="{Binding  TypTransakcji}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdTypuTransakcji,Mode=TwoWay}"/>
+                        <Label Content="{x:Static resx:BaseResources.SposobDostawy}" Style="{StaticResource LabelStandardowy}" Grid.Row="1" Grid.Column="0"/>
+                        <ComboBox Grid.Row="1" Grid.Column="1" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" Style="{StaticResource ComboBoxAuto1}" 
+                                  ItemsSource="{Binding  SposobDostawy}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdSposobuDostawy,Mode=TwoWay}"/>
+                        <Label Content="{x:Static resx:BaseResources.RodzajTransportu}" Style="{StaticResource LabelStandardowy}" Grid.Row="2" Grid.Column="0"/>
+                        <ComboBox Grid.Row="2" Grid.Column="1" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" Style="{StaticResource ComboBoxAuto1}"
+                                  ItemsSource="{Binding  RodzajTransportu}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdRodzajuTransportu,Mode=TwoWay}"/>
+                        <Label Content="{x:Static resx:BaseResources.Platnosc}" Style="{StaticResource LabelStandardowy}" Grid.Row="3" Grid.Column="0"/>
+                        <ComboBox Grid.Row="3" Grid.Column="1" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" Style="{StaticResource ComboBoxAuto1}"
+                                  ItemsSource="{Binding  SposobPlatnosci}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdSposobuPlatnosci,Mode=TwoWay}"/>
+                        <Label Content ="{x:Static resx:BaseResources.Status}" Style="{StaticResource LabelStandardowy}" Grid.Row="4" Grid.Column="0" />
+                        <ComboBox Grid.Row="4" Grid.Column="1" Template="{DynamicResource ComboBoxTemplate1}" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{StaticResource ComboBoxAuto1}" 
+                                  ItemsSource="{Binding  StatusZZ}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdStatusuZZ,Mode=TwoWay}"/>
+                        <Button Command="{Binding ShowAddTypTransakcjiCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.NowaTransakcja}" Grid.Row="0" Grid.Column="2"/>
+                        <Button Command="{Binding ShowAddSposobDostawyCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.NowySpDostawy}" Grid.Row="1" Grid.Column="2"/>
+                        <Button Command="{Binding ShowAddRodzajTransportuCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.NowyRodzTransportu}" Grid.Row="2" Grid.Column="2"/>
+                        <Button Command="{Binding ShowAddSposobPlatnosciCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.NowaPlatnosc}" Grid.Row="3" Grid.Column="2"/>
+                        <Button Command="{Binding ShowAddStatusZZCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.NowyStatus}" Grid.Row="4" Grid.Column="2"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox DockPanel.Dock="Top" Header="{x:Static resx:BaseResources.DokumentyDostawcy}" Style="{StaticResource GroupBoxSerwis4}">
+                    <StackPanel>
+                        <Label Content="{x:Static resx:BaseResources.NrOfertyDost}" Style="{StaticResource Label22S2}"/>
+                        <TextBox Text="{Binding Path=NrOferty, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZam}"/>
+                        <CheckBox x:Name="ptw" IsChecked="{Binding Potwierdzone}"  Content ="{x:Static resx:BaseResources.ZamPotw}" Style="{StaticResource CheckBoxStandard}"/>
+                        <Label Content="{x:Static resx:BaseResources.NrPotwierdzenia}" Style="{StaticResource Label22S2}"/>
+                        <TextBox Text="{Binding Path=NrPotwierdzenia, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=ptw, Path=IsChecked}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZam}"/>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding WszystkieList, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" SelectedItem="{Binding SelectedItem}" Template="{DynamicResource DataGridTemplate1}" Style="{StaticResource DataGridStandard}" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Kod}" Binding="{Binding ProduktKod}" Width="100"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Nazwa}" Binding="{Binding ProduktNazwa}" Width="*"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Ilosc}" Binding="{Binding Ilosc}" Width="50"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Jm}" Binding="{Binding ProduktJednostkaMiary}"  Width="50"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.CenaNetto}" Binding="{Binding Cena, StringFormat='N2' }" Width="110"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Rabat}" Binding="{Binding Rabat, StringFormat='P2'}" Width="110" />
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Waluta}" Binding="{Binding ProduktCenaWaluta }" Width="110"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.DataRealizacji}" Binding="{Binding DataRealizacji, StringFormat='dd.MM.yyyy'}" Width="110"/>
+            </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" 
+                    Command="{Binding ShowEditViewCommand}" 
+                    CommandParameter="{Binding ElementName=UsersDataGrid, Path=SelectedItem}" />
+            </DataGrid.InputBindings>
+        </DataGrid>
+    </Grid>
+</local:JedenWszystkieViewBase>

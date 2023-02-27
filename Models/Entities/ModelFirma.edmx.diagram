@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9977356c791c4c51a319ac9789808335" Name="Diagram1">
+        <EntityTypeShape EntityType="FirmaDB2Model.Adresy" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.Ceny" Width="1.5" PointX="8.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.JednostkiMiary" Width="1.5" PointX="3.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.KodyPcn" Width="1.5" PointX="3.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.Kontrahenci" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.Monterzy" Width="1.5" PointX="9" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.PozycjeZleceniaZakupu" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.Produkty" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.ProduktyUboczneZleceniaKompletacji" Width="1.5" PointX="11.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.RodzajeTransportu" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.SkladnikiZleceniaKompletacji" Width="1.5" PointX="8.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.SposobyDostawy" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.SposobyPlatnosci" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.StatusyZK" Width="1.5" PointX="9" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.StatusyZZ" Width="1.5" PointX="0.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.TerminyPlatnosciOdroczonej" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.TypyCen" Width="1.5" PointX="6" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.TypyTransakcji" Width="1.5" PointX="0.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.ZleceniaKompletacji" Width="1.5" PointX="11.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FirmaDB2Model.ZleceniaZakupu" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Adresy__IdKontra__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Ceny__IdProduktu__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Ceny__IdTypuCeny__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Produkty__IdJedn__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Produkty__IdKodu__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Produkty__IdDost__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaK__IdKon__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaZ__IdKon__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaK__IdMon__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__PozycjeZl__IdPro__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__PozycjeZl__IdZle__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ProduktyU__IdPro__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Skladniki__IdPro__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaK__IdPro__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ProduktyU__IdZle__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaZ__IdRod__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__Skladniki__IdZle__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaZ__IdSpo__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaZ__IdSpo__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaK__IdSta__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaZ__IdSta__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__TerminyPl__IdZle__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="FirmaDB2Model.FK__ZleceniaZ__IdTyp__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

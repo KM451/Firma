@@ -1,0 +1,42 @@
+﻿<local1:JedenViewBase x:Class="Firma.Views.ZakupView.NowaPozycjaZZView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             xmlns:local="clr-namespace:Firma.Views.ZakupView"
+             xmlns:local1="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source = "../StyleZakladekResources.xaml" />
+    </UserControl.Resources>
+    <GroupBox Header="{x:Static resx:BaseResources.DaneNowejPozZZ}" Style="{StaticResource GroupBoxSerwis4}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="150"/>
+                <ColumnDefinition  Width="200"/>
+                <ColumnDefinition  Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="40"/>
+                <RowDefinition  Height="40"/>
+                <RowDefinition  Height="40"/>
+                <RowDefinition  Height="40"/>
+                <RowDefinition  Height="40"/>
+                <RowDefinition  Height="40"/>
+                <RowDefinition  Height="*"/>
+            </Grid.RowDefinitions>
+            <Label  Grid.Column="0"  Grid.Row="0" Content="{x:Static resx:BaseResources.Produkt}" Style="{StaticResource LabelStandardowy}" />
+            <ComboBox  Grid.Column="1" Grid.Row="0" Style="{StaticResource ComboBox150}" ItemsSource="{Binding Produkty}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding IdProduktu, Mode=TwoWay}" />
+            <Label  Grid.Column="0" Grid.Row="1" Content="{x:Static resx:BaseResources.Cena}" Style="{StaticResource LabelStandardowy}"/>
+            <TextBox  Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBox150}" Text="{Binding Cena, StringFormat='N2', UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
+            <Label  Grid.Column="0" Grid.Row="2" Content="{x:Static resx:BaseResources.Ilosc}" Style="{StaticResource LabelStandardowy}"/>
+            <TextBox  Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBox150}" Text="{Binding Ilosc, StringFormat='N2', UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" />
+            <Label  Grid.Column="0" Grid.Row="3" Content="{x:Static resx:BaseResources.RabatP}" Style="{StaticResource LabelStandardowy}"/>
+            <TextBox  Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBox150}" Text="{Binding Rabat, StringFormat='N2', UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" /> 
+            <Label  Grid.Column="0" Grid.Row="4" Content="{x:Static resx:BaseResources.DataRealizacji}" Style="{StaticResource LabelStandardowy}"/>
+            <DatePicker Grid.Column="1" Grid.Row="4" Style="{StaticResource DatePicker150}" SelectedDate="{Binding DataRealizacji, StringFormat='dd.MM.yyyy', UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
+        </Grid>
+    </GroupBox>
+</local1:JedenViewBase>

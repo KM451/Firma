@@ -1,0 +1,148 @@
+﻿<local:JedenWszystkieViewBase 
+             x:Class="Firma.Views.KompletacjaView.NoweZlecenieKompView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             xmlns:local="clr-namespace:Firma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource GridPodstawowy}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="230"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="{x:Static resx:BaseResources.Kontrahent}" Style="{StaticResource GroupBoxSerwis4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{x:Static resx:BaseResources.Kod}" Style="{StaticResource LabelR}" />
+                        <TextBox Text="{Binding Kod}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZM}" IsReadOnly="True"/>
+                        <Label Content="{x:Static resx:BaseResources.Nazwa}" Style="{StaticResource LabelR}" />
+                        <TextBox Text="{Binding DaneKontrahenta, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"  Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZD}" IsReadOnly="True"/>
+                        <Button Command="{Binding ShowKontrahentCommand}" Template="{DynamicResource ButtonZnajdz}" Style="{StaticResource ButtonIkonaMalaZZ}" ToolTip="{x:Static resx:BaseResources.WybierzKontrahenta}"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="{x:Static resx:BaseResources.ParametryZlecenia}" Style="{StaticResource GroupBoxSerwis4}" Grid.Row="1">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{x:Static resx:BaseResources.OczekiwanaDataR}" Style="{StaticResource LabelStandardowyCenter}"/>
+                                <DatePicker SelectedDate="{Binding OczekiwanaDataRealizacji, StringFormat='dd.MM.yyyy', UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"  Style="{StaticResource BaseDatePicker}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{x:Static resx:BaseResources.PotwierdzonaDataR}" Style="{StaticResource LabelStandardowyCenter}"/>
+                                <DatePicker x:Name="DataR" SelectedDate="{Binding PotwierdzonaDataRealizacji, StringFormat='dd.MM.yyyy', UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" Style="{StaticResource BaseDatePicker}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content ="{x:Static resx:BaseResources.PriorytetZlecenia}" Style="{StaticResource LabelStandardowyCenter}"/>
+                                <ComboBox  Template="{DynamicResource ComboBoxTemplate1}" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{StaticResource ComboBox100}"
+                                ItemsSource="{Binding  PriorytetWartosc}" SelectedValue="{Binding Path=Priorytet,Mode=TwoWay}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content ="{x:Static resx:BaseResources.Status}" Style="{StaticResource LabelStandardowy2}"/>
+                                <ComboBox  Template="{DynamicResource ComboBoxTemplate1}" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{StaticResource ComboBox150}"
+                                ItemsSource="{Binding  StatusZK}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdStatusuZK,Mode=TwoWay}"/>
+                                <Button Command="{Binding ShowAddStatusZKCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.DodajStatus}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="{x:Static resx:BaseResources.Produkt}" Style="{StaticResource GroupBoxSerwis4}" Grid.Row="2">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{x:Static resx:BaseResources.Kod}" Style="{StaticResource LabelR}" />
+                            <TextBox Text="{Binding ProduktKod}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZM}" IsReadOnly="True"/>
+                            <Label Content="{x:Static resx:BaseResources.Nazwa}" Style="{StaticResource LabelR}" />
+                            <TextBox Text="{Binding ProduktNazwa, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"  Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZD}" IsReadOnly="True"/>
+                            <Button Command="{Binding ShowProduktCommand}" Template="{DynamicResource ButtonZnajdz}" Style="{StaticResource ButtonIkonaMalaZZ}" ToolTip="{x:Static resx:BaseResources.WyszukajProdukt}"/>
+                            <Label Content="{x:Static resx:BaseResources.Ilosc}" Style="{StaticResource LabelR}" />
+                            <TextBox Text="{Binding Ilosc, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"  Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZD}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{x:Static resx:BaseResources.DodatkowaNazwa}" Style="{StaticResource LabelR}" />
+                            <TextBox Text="{Binding ProduktDodatkowaNazwa}"  Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZD2}" IsReadOnly="True"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </Grid>
+        <TabControl Grid.Row="1">
+            <TabItem Header="{x:Static resx:BaseResources.Skladniki}" IsSelected="{Binding SkladnikAkt}">
+                <DataGrid ItemsSource="{Binding WszystkieList, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" SelectedItem="{Binding SelectedItem}" Template="{DynamicResource DataGridTemplate1}" Grid.Column="0" Style="{StaticResource DataGridStandard}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Kod}" Binding="{Binding Kod}" Width="110"/>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Nazwa}" Binding="{Binding Nazwa}" Width="*"/>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Ilosc}" Binding="{Binding Ilosc}" Width="110"/>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Jm}" Binding="{Binding JednostkaMiary}" Width="110"/>
+                    </DataGrid.Columns>
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" 
+                    Command="{Binding ShowEditViewCommand}" 
+                    CommandParameter="{Binding ElementName=UsersDataGrid, Path=SelectedItem}" />
+                    </DataGrid.InputBindings>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="{x:Static resx:BaseResources.ProduktyUboczne}" IsSelected="{Binding UbocznyAkt}">
+                <DataGrid ItemsSource="{Binding WszystkieUboczneList}" SelectedItem="{Binding SelectedItemUboczny}" Template="{DynamicResource DataGridTemplate1}" Style="{StaticResource DataGridStandard}" Grid.Column="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Kod}" Binding="{Binding Kod}" Width="110"/>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Nazwa}" Binding="{Binding Nazwa}" Width="*"/>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Ilosc}" Binding="{Binding Ilosc}" Width="110"/>
+                        <DataGridTextColumn Header="{x:Static resx:BaseResources.Jm}" Binding="{Binding JednostkaMiary}" Width="110"/>
+                    </DataGrid.Columns>
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" 
+                    Command="{Binding ShowEditViewCommand}" 
+                    CommandParameter="{Binding ElementName=UsersDataGrid, Path=SelectedItem}" />
+                    </DataGrid.InputBindings>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox  Header="{x:Static resx:BaseResources.CzasKompletacji}" Style="{StaticResource GroupBoxObl}" Grid.Column="1">
+                <StackPanel>
+                    <TextBox Text="{Binding Path=CzasZlecenia, UpdateSourceTrigger=PropertyChanged}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZKM}" DockPanel.Dock="Top" IsReadOnly="True"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Command="{Binding CzasMinus}" Template="{DynamicResource ButtonOdejmijCircle}" Style="{StaticResource ButtonIkona}" ToolTip="{x:Static resx:BaseResources.Zmniejsz}" Margin="5"/>
+                        <Button Command="{Binding CzasPlus}" Template="{DynamicResource ButtonDodajCicrcle}" Style="{StaticResource ButtonIkona}" ToolTip="{x:Static resx:BaseResources.Zwieksz}" Margin="5" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox  Header="{x:Static resx:BaseResources.Montazysta}" Style="{StaticResource GroupBoxObl}" Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox DockPanel.Dock="Top" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" Style="{StaticResource ComboBox210}" 
+                    ItemsSource="{Binding  Monter}" DisplayMemberPath="Tytul"  SelectedValuePath="Id"  SelectedValue="{Binding Path=IdMontera,Mode=TwoWay}"/>
+                    <Button Command="{Binding ShowAddMonterCommand}" Template="{DynamicResource ButtonDodajNew}" Style="{StaticResource ButtonEdit}" ToolTip="{x:Static resx:BaseResources.NowyMonter}"/>
+                </StackPanel>
+            </GroupBox>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Grid>
+    </Grid>
+</local:JedenWszystkieViewBase>

@@ -1,0 +1,192 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vw1="clr-namespace:Firma.ViewModels.ProduktViewModel"
+                    xmlns:vw2="clr-namespace:Firma.ViewModels.KompletacjaViewModel"
+                    xmlns:vw3="clr-namespace:Firma.ViewModels.ZakupViewModel"
+                    xmlns:vw4="clr-namespace:Firma.ViewModels.KontrachentViewModel"
+                    xmlns:vw5="clr-namespace:Firma.ViewModels.RaportyViewModel"
+                    xmlns:vm1="clr-namespace:Firma.Views.ProduktView"
+                    xmlns:vm2="clr-namespace:Firma.Views.KompletacjaView"
+                    xmlns:vm3="clr-namespace:Firma.Views.ZakupView"
+                    xmlns:vm4="clr-namespace:Firma.Views.KontrahentView"
+                    xmlns:vm5="clr-namespace:Firma.Views.RaportyView">
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!--tu bedziemy laczyc View z ViewModel zakładek-->
+
+    <DataTemplate DataType="{x:Type vw1:WszystkieProduktyViewModel}">
+        <vm1:WszystkieProduktyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw1:NowyProduktViewModel}">
+        <vm1:NowyProduktView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw2:NoweZlecenieKompViewModel}">
+        <vm2:NoweZlecenieKompView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw3:NoweZlecenieZakupuViewModel}">
+        <vm3:NoweZlecenieZakupuView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vw3:ZleceniaZakupuViewModel}">
+        <vm3:ZleceniaZakupuView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw2:ZleceniaKompletacjiViewModel}">
+        <vm2:ZleceniaKompletacjiView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw4:WszyscyKontrahenciViewModel}">
+        <vm4:WszyscyKontrahenciView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vw4:WszyscyDostawcyViewModel}">
+        <vm4:WszyscyKontrahenciView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw4:NowyKontrahentViewModel}">
+        <vm4:NowyKontrahentView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vw3:NowaPozycjaZZViewModel}">
+        <vm3:NowaPozycjaZZView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw3:NowyRodzajTransportuViewModel}">
+        <vm3:NowySkladnikZzView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vw3:NowySposobDostawyViewModel}">
+        <vm3:NowySkladnikZzView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw3:NowySposobPlatnosciViewModel}">
+        <vm3:NowySkladnikZzView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw3:NowyTypTransakcjiViewModel}">
+        <vm3:NowySkladnikZzView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vw3:NowyStatusZZViewModel}">
+        <vm3:NowySkladnikZzView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw4:NowyAdresViewModel}">
+        <vm4:NowyAdresView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw2:NowySkladnikZKViewModel}">
+        <vm2:NowySkladnikZKView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw2:NowyProduktUbocznyZKViewModel}">
+        <vm2:NowySkladnikZKView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw2:NowyMonterViewModel}">
+        <vm2:NowyStatusZKView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw2:NowyStatusZKViewModel}">
+        <vm2:NowyStatusZKView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw1:NowaJednostkaMiaryViewModel}">
+        <vm1:NowaJednostkaMiaryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw1:NowyKodPcnViewModel}">
+        <vm1:NowaJednostkaMiaryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw4:EditKontrahentViewModel}">
+        <vm4:NowyKontrahentView/>
+    </DataTemplate>
+    <!--<DataTemplate DataType="{x:Type vw2:EditZlecenieKompViewModel}">
+        <vm2:NoweZlecenieKompView/>
+    </DataTemplate>-->
+    <!--<DataTemplate DataType="{x:Type vw3:EditZlecenieZakupuViewModel}">
+        <vm3:NoweZlecenieZakupuView/>
+    </DataTemplate>-->
+    <DataTemplate DataType="{x:Type vw1:EditProduktViewModel}">
+        <vm1:NowyProduktView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw5:RaportMonteraViewModel}">
+        <vm5:RaportMontera/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw5:RaportZZViewModel}">
+        <vm5:RaportZZ/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw5:SredniCzasZKViewModel}">
+        <vm5:SredniCzasZKView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vw4:EditAdresKontrahentViewModel}">
+        <vm4:NowyAdresView/>
+    </DataTemplate>
+
+    <!--tu jest koniec łączenia View z ViewModel zakładek-->
+
+    <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <!-- This template ensures that content of a HeaderedContentControl 
+                fills the available vertical space. -->
+                <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+                    <DockPanel>
+                        <ContentPresenter DockPanel.Dock="Top" ContentSource="Header" ContentTemplate="{TemplateBinding HeaderTemplate}"/>
+                        <ContentPresenter ContentSource="Content" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+  This style ensures that the borders in the main window are consistent.
+  -->
+    <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+        
+    <!--
+  This template explains how to render the list of commands on the left
+  side in the main window (the 'Control Panel' area).
+  -->
+    <DataTemplate x:Key="CommandsTemplate">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Path=DisplayName}" Command="{Binding Path=Command}" Style="{StaticResource ButtonCommand}" Template="{DynamicResource ButtonCommandTemplate}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+    </DataTemplate>
+
+    <!-- 
+  This template explains how to render 
+  a tab item with a close button.
+  -->
+    <DataTemplate x:Key="ClosableTabItemTemplate">
+        <DockPanel Width="170">
+            <Button Template="{DynamicResource ButtonZakladka}" Command="{Binding Path=CloseCommand}" Cursor="Hand" DockPanel.Dock="Right" Width="16" Height="16" Margin="0,2,0,0"/>
+            <Label Content="{Binding Path=DisplayName}" VerticalAlignment="Top" Foreground="ForestGreen" FontWeight="Bold" FontSize="12" Margin="0" Height="16" Padding="0"/>
+        </DockPanel>
+    </DataTemplate>
+
+
+    
+    <!--
+  This template explains how to render the 'Workspace' content area in the main window.
+  -->
+    <DataTemplate x:Key="WorkspacesTemplate">
+        <TabControl IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" 
+            ItemTemplate="{StaticResource ClosableTabItemTemplate}" Margin="4" />
+    </DataTemplate>
+    
+
+</ResourceDictionary>

@@ -1,0 +1,93 @@
+﻿<local:WszystkieViewBase x:Class="Firma.Views.ProduktView.WszystkieProduktyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             xmlns:local="clr-namespace:Firma.Views" 
+             xmlns:local1="clr-namespace:Firma.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source ="../StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource GridPodstawowy}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False"  ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem}" Template="{DynamicResource DataGridTemplate1}" Style="{StaticResource DataGridStandard}" Grid.Row="0" >
+            <DataGrid.Resources>
+                <local1:BindingProxy x:Key="proxy" Data="{Binding}"/>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=IdProduktu}" Header="{x:Static resx:BaseResources.IdProduktu}" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Path=Kod}" Header="{x:Static resx:BaseResources.Kod}" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Path=Nazwa}" Header="{x:Static resx:BaseResources.Nazwa}" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Cena, StringFormat={}{0:N2}}"  Header="{x:Static resx:BaseResources.Cena}" Visibility="{Binding Data.WidocznoscKolumnaCena, Source={StaticResource proxy}}" Width="80" />
+                <DataGridTextColumn Binding="{Binding Path=Waluta}" Header="{x:Static resx:BaseResources.Waluta}"  Visibility="{Binding Data.WidocznoscKolumnaCena, Source={StaticResource proxy}}" Width="40" />
+                <DataGridTextColumn Binding="{Binding Path=JednostkaMiary}" Header="{x:Static resx:BaseResources.Jm}" Visibility="{Binding Data.WidocznoscKolumnaJM, Source={StaticResource proxy}}" Width="40" />
+                <DataGridTextColumn Binding="{Binding Path=Producent}" Header="{x:Static resx:BaseResources.Producent}" Visibility="{Binding Data.WidocznoscKolumnaProducent, Source={StaticResource proxy}}" Width="100" />
+                <DataGridTextColumn Binding="{Binding Path=Marka}" Header="{x:Static resx:BaseResources.Marka}" Visibility="{Binding Data.WidocznoscKolumnaMarka, Source={StaticResource proxy}}" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Path=DostawcaNazwa}" Header="{x:Static resx:BaseResources.Dostawca}" Visibility="{Binding Data.WidocznoscKolumnaDostawca, Source={StaticResource proxy}}" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Path=Typ}" Header="{x:Static resx:BaseResources.Typ}" Visibility="{Binding Data.WidocznoscKolumnaTyp, Source={StaticResource proxy}}" Width="100"  />
+                <DataGridTextColumn Binding="{Binding Path=VatSprzedazy}" Header="{x:Static resx:BaseResources.StawkaVatSprzedazy}" Visibility="{Binding Data.WidocznoscKolumnVat, Source={StaticResource proxy}}" Width="100"  />
+                <DataGridTextColumn Binding="{Binding Path=VatZakupu}" Header="{x:Static resx:BaseResources.StawkaVatZakupu}" Visibility="{Binding Data.WidocznoscKolumnVat, Source={StaticResource proxy}}" Width="100"  />
+            </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" 
+                    Command="{Binding OpenCommand}" 
+                    CommandParameter="{Binding ElementName=UsersDataGrid, Path=SelectedItem}" />
+            </DataGrid.InputBindings>
+        </DataGrid>
+        <Border Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="370"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="{x:Static resx:BaseResources.RodzajCeny}" Style="{StaticResource GroupBoxSerwis}" Visibility="{Binding WidocznoscKolumnaCena}" Grid.Column="1" >
+                <StackPanel Orientation="Horizontal" >
+                    <ComboBox  Opacity="5" Template="{DynamicResource ComboBoxTemplate1}" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{StaticResource ComboBox150}" Grid.Row="1" Grid.Column="0"
+                          ItemsSource="{Binding  TypyCen}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding Path=SelectedTypCeny,Mode=TwoWay}" 
+                            Visibility="{Binding WidocznoscKolumnaCena}" />
+                    <StackPanel Orientation="Horizontal">
+                        <Separator Style="{StaticResource SeparatorTlo}" Width="20"/>
+                        <RadioButton GroupName="TypCeny" Template="{DynamicResource RadioButtonTemplate1}" Content="{x:Static resx:BaseResources.Netto}" Style="{StaticResource RadioButtonCenter}" IsChecked="True"/>
+                        <Separator Style="{StaticResource SeparatorTlo}" Width="30"/>
+                        <RadioButton GroupName="TypCeny" Template="{DynamicResource RadioButtonTemplate1}" Content="{x:Static resx:BaseResources.Brutto}" Style="{StaticResource RadioButtonCenter}" IsChecked="{Binding Path=SelectedBrutto, Mode=TwoWay}" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{x:Static resx:BaseResources.WidocznoscKolumn}" Style="{StaticResource GroupBoxSerwis}" Grid.Column="0">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Left" Margin="10,5">
+                        <CheckBox Content="{x:Static resx:BaseResources.Cena}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnyCenaCommand}"/>
+                        <CheckBox Content="{x:Static resx:BaseResources.Jm}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnyJMCommand}"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Left" Margin="10,5">
+                        <CheckBox Content="{x:Static resx:BaseResources.Producent}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnyProducentCommand}" />
+                        <CheckBox Content="{x:Static resx:BaseResources.Dostawca}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnyDostawcaCommand}"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Left" Margin="10,5">
+                        <CheckBox Content="{x:Static resx:BaseResources.Marka}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnyMarkaCommand}"/>
+                        <CheckBox Content="{x:Static resx:BaseResources.Typ}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnyTypCommand}"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Margin="10,5">
+                        <CheckBox Content="{x:Static resx:BaseResources.Vat}" IsChecked="True" Command="{Binding ZmienWidocznoscKolumnVatCommand}"/>
+                    </StackPanel>
+                </DockPanel>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</local:WszystkieViewBase>

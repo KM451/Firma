@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="Firma.Views.RaportyView.RaportZZ"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views.RaportyView"
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="550">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource GridPodstawowy}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="{x:Static resx:BaseResources.ZZKontrahentTotal}" Style="{StaticResource GroupBoxStandard}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="{x:Static resx:BaseResources.Dostawca}" Style="{StaticResource GroupBoxSerwis4}" Grid.ColumnSpan="4">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{x:Static resx:BaseResources.Kod}" Style="{StaticResource LabelR}" />
+                        <TextBox Text="{Binding Kod}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxZZM}" IsReadOnly="True"/>
+                        <Label Content="{x:Static resx:BaseResources.Nazwa}" Style="{StaticResource LabelR}" />
+                        <TextBox Text="{Binding DaneKontrahenta}"  Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxRaport2}" IsReadOnly="True"/>
+                        <Button Command="{Binding ShowKontrahentCommand}" Template="{DynamicResource ButtonZnajdz}" Style="{StaticResource ButtonIkonaMalaZZ}" ToolTip="{x:Static resx:BaseResources.WybierzKontrahenta}"/>
+                    </StackPanel>
+                </GroupBox>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Label Content ="{x:Static resx:BaseResources.DataOd}" Style="{StaticResource LabelRaport}"/>
+                    <DatePicker DockPanel.Dock="Left" SelectedDate="{Binding DataOd}" Style="{StaticResource DatePickerRaport2}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+                    <Label Content ="{x:Static resx:BaseResources.DataDo}"  Style="{StaticResource LabelRaport}"/>
+                    <DatePicker DockPanel.Dock="Left" SelectedDate="{Binding DataDo}" Style="{StaticResource DatePickerRaport2}"/>
+                </StackPanel>
+                <Button Command="{Binding ObliczCommand}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Content="Oblicz" Style="{StaticResource ButtonCommandRaport}"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Label Content ="{x:Static resx:BaseResources.ZleceniaTotal}" Style="{StaticResource LabelRaport3}"/>
+                    <TextBox Text="{Binding IloscZlecen}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxRaport5}"/>
+                    <Label Content ="{x:Static resx:BaseResources.ZZTotal}" Style="{StaticResource LabelRaport3}"/>
+                    <TextBox Text="{Binding WartoscZlecen}" Template="{DynamicResource TextBoxTemplate1}" Style="{StaticResource TextBoxRaport3}"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>
+

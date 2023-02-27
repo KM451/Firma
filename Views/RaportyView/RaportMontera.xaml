@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Firma.Views.RaportyView.RaportMontera"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Firma.Views.RaportyView"
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="270" d:DesignWidth="400">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource GridPodstawowy}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="{x:Static resx:BaseResources.ObłozenieDzienneMontazysty}" Style="{StaticResource GroupBoxStandard}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+                <Label Content ="{x:Static resx:BaseResources.Montazysta}" Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelRaport}"/>
+                <ComboBox  ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxTemplate1}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource ComboBoxRaport}"
+                         ItemsSource="{Binding MonterComboBoxItems}" DisplayMemberPath="Value"  SelectedValuePath="Key"  SelectedValue="{Binding Path=IdMontera,Mode=TwoWay}"   />
+                <Label Content ="{x:Static resx:BaseResources.Data}" Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelRaport}"/>
+                <DatePicker DockPanel.Dock="Left" SelectedDate="{Binding Data}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource DatePickerRaport}"/>
+                <Button Command="{Binding ObliczCommand}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="Oblicz" Style="{StaticResource ButtonCommandRaport2}"/>
+                <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="65"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content ="{x:Static resx:BaseResources.ZleceniaTotal}" Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelRaport}"/>
+                    <Label Content ="{x:Static resx:BaseResources.CzasRealizacjiTotal}" Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelRaport}"/>
+                    <Label Content ="{x:Static resx:BaseResources.FormatCzasu}" Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelRaport2}"/>
+                    <TextBox Text="{Binding IloscZlecen}" Template="{DynamicResource TextBoxTemplate1}" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxRaport}"/>
+                    <TextBox Text="{Binding CzasZlecen}" Template="{DynamicResource TextBoxTemplate1}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxRaport}"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

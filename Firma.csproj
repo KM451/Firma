@@ -1,0 +1,176 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net4.8-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\KompletacjaViewModel\EditZlecenieKompViewModel.cs" />
+    <Compile Remove="ViewModels\ZakupViewModel\EditZlecenieZakupuViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\Entities\ModelFirma.edmx" />
+    <None Remove="Models\ModelFirma.edmx" />
+    <None Remove="ViewResources\Icons\2.png" />
+    <None Remove="ViewResources\Icons\3.png" />
+    <None Remove="ViewResources\Icons\4.png" />
+    <None Remove="ViewResources\Icons\add_box_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\add_box_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\add_business.png" />
+    <None Remove="ViewResources\Icons\add_circle.png" />
+    <None Remove="ViewResources\Icons\add_circle_FILL.png" />
+    <None Remove="ViewResources\Icons\add_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\black_24dp.png" />
+    <None Remove="ViewResources\Icons\browser_updated_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\builds.png" />
+    <None Remove="ViewResources\Icons\build_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\cancel_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\cancel_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\change_circle_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\change_circle_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\check_circle_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\check_circle_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\close_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\delete_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\delete_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\edit.png" />
+    <None Remove="ViewResources\Icons\edit_FILL0.png" />
+    <None Remove="ViewResources\Icons\edit_FILL1.png" />
+    <None Remove="ViewResources\Icons\filter_alt_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\filter_alt_off_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\horizontal_split_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\import_contacts_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\import_contacts_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\info_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\kompletacja.png" />
+    <None Remove="ViewResources\Icons\list.png" />
+    <None Remove="ViewResources\Icons\lock_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\lock_open_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\minus.png" />
+    <None Remove="ViewResources\Icons\minus_circle.png" />
+    <None Remove="ViewResources\Icons\minus_circle_FILL.png" />
+    <None Remove="ViewResources\Icons\minus_FILL.png" />
+    <None Remove="ViewResources\Icons\outline_push_pin_black_24dp.png" />
+    <None Remove="ViewResources\Icons\print_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\produkty.png" />
+    <None Remove="ViewResources\Icons\save_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\save_FILL1_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\search_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\settings_FILL0_wght400_GRAD0_opsz20.svg" />
+    <None Remove="ViewResources\Icons\settings_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\shopping.png" />
+    <None Remove="ViewResources\Icons\store.png" />
+    <None Remove="ViewResources\Icons\unpin_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\vertical_split_FILL0_wght400_GRAD0_opsz48.png" />
+    <None Remove="ViewResources\Icons\WSB.PNG" />
+    <None Remove="ViewResources\Icons\Zlecenia.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ViewResources\Icons\add_circle.png" />
+    <Resource Include="ViewResources\Icons\add_circle_FILL.png" />
+    <Resource Include="ViewResources\Icons\check_circle_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\check_circle_FILL1_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EntityDeploy Include="Models\Entities\ModelFirma.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelFirma.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ViewResources\Icons\add_business.png" />
+    <Resource Include="ViewResources\Icons\browser_updated_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\edit.png" />
+    <Resource Include="ViewResources\Icons\edit_FILL0.png" />
+    <Resource Include="ViewResources\Icons\edit_FILL1.png" />
+    <Resource Include="ViewResources\Icons\horizontal_split_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\info_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\minus.png" />
+    <Resource Include="ViewResources\Icons\minus_circle.png" />
+    <Resource Include="ViewResources\Icons\minus_circle_FILL.png" />
+    <Resource Include="ViewResources\Icons\minus_FILL.png" />
+    <Resource Include="ViewResources\Icons\store.png" />
+    <Resource Include="ViewResources\Icons\vertical_split_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="5.0.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Security" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ViewResources\Icons\2.png" />
+    <Resource Include="ViewResources\Icons\3.png" />
+    <Resource Include="ViewResources\Icons\4.png" />
+    <Resource Include="ViewResources\Icons\add_box_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\add_box_FILL1_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\add_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\black_24dp.png" />
+    <Resource Include="ViewResources\Icons\builds.png" />
+    <Resource Include="ViewResources\Icons\build_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\cancel_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\cancel_FILL1_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\change_circle_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\change_circle_FILL1_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\close_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\delete_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\delete_FILL1_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\filter_alt_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\filter_alt_off_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\import_contacts_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\import_contacts_FILL1_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\kompletacja.png" />
+    <Resource Include="ViewResources\Icons\list.png" />
+    <Resource Include="ViewResources\Icons\lock_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\lock_open_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\outline_push_pin_black_24dp.png" />
+    <Resource Include="ViewResources\Icons\print_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\produkty.png" />
+    <Resource Include="ViewResources\Icons\save_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\save_FILL1_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\search_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\settings_FILL0_wght400_GRAD0_opsz20.svg" />
+    <Resource Include="ViewResources\Icons\settings_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\shopping.png" />
+    <Resource Include="ViewResources\Icons\unpin_FILL0_wght400_GRAD0_opsz48.png" />
+    <Resource Include="ViewResources\Icons\WSB.PNG" />
+    <Resource Include="ViewResources\Icons\Zlecenia.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Models\Entities\ModelFirma.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModelFirma.edmx</DependentUpon>
+    </Compile>
+    <Compile Update="ViewResources\BaseResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ViewResources\BaseResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BaseResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

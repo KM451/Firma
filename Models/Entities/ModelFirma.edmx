@@ -1,0 +1,1741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FirmaDB2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adresy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdKontrahenta" Type="int" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Miejscowosc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NrDomu" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrLokalu" Type="nchar" MaxLength="10" />
+          <Property Name="KodPoczowy" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Kraj" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Siedziba" Type="bit" Nullable="false" />
+          <Property Name="Wysylkowy" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ceny">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdProduktu" Type="int" Nullable="false" />
+          <Property Name="IdTypuCeny" Type="int" Nullable="false" />
+          <Property Name="Wartosc" Type="money" Nullable="false" />
+          <Property Name="Waluta" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JednostkiMiary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KodyPcn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Nip" Type="nvarchar" MaxLength="13" />
+          <Property Name="Dostawca" Type="bit" Nullable="false" />
+          <Property Name="Odbiorca" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monterzy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PozycjeZleceniaZakupu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdZleceniaZakupu" Type="int" Nullable="false" />
+          <Property Name="IdProduktu" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DataRealizacji" Type="datetime" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Rabat" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Produkty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DodatkowaNazwa" Type="nvarchar" MaxLength="255" />
+          <Property Name="IdJednostkaMiary" Type="int" Nullable="false" />
+          <Property Name="Symbol" Type="nvarchar" MaxLength="32" />
+          <Property Name="SWWPKWiU" Type="nvarchar" MaxLength="64" />
+          <Property Name="TypProduktu" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="StawkaVatZakupu" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StawkaVatSprzedazy" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IdDostawcy" Type="int" />
+          <Property Name="Producent" Type="nvarchar" MaxLength="64" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="32" />
+          <Property Name="StawkaCla" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="StawkaAkcyzy" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="IdKoduPcn" Type="int" />
+          <Property Name="KrajPochodzenia" Type="nvarchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProduktyUboczneZleceniaKompletacji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdZleceniaKompletacji" Type="int" Nullable="false" />
+          <Property Name="IdProduktu" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RodzajeTransportu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkladnikiZleceniaKompletacji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdZleceniaKompletacji" Type="int" Nullable="false" />
+          <Property Name="IdProduktu" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SposobyDostawy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SposobyPlatnosci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusyZK">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusyZZ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TerminyPlatnosciOdroczonej">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdZleceniaZakupu" Type="int" Nullable="false" />
+          <Property Name="IloscDni" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypyCen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypyTransakcji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZleceniaKompletacji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="IdKontrahenta" Type="int" Nullable="false" />
+          <Property Name="OczekiwanaDataRealizacji" Type="datetime" Nullable="false" />
+          <Property Name="PotwierdzonaDataRealizacji" Type="datetime" />
+          <Property Name="IdProduktu" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IdMontera" Type="int" Nullable="false" />
+          <Property Name="Priorytet" Type="int" Nullable="false" />
+          <Property Name="IdStatusuZK" Type="int" Nullable="false" />
+          <Property Name="CzasZlecenia" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="ZleceniaZakupu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tytul" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+          <Property Name="Notatki" Type="nvarchar(max)" />
+          <Property Name="DataUtworzenia" Type="datetime" Nullable="false" />
+          <Property Name="DataModyfikacji" Type="datetime" Nullable="false" />
+          <Property Name="NrOferty" Type="nvarchar" MaxLength="32" />
+          <Property Name="Potwierdzone" Type="bit" Nullable="false" />
+          <Property Name="NrPotwierdzenia" Type="nvarchar" MaxLength="32" />
+          <Property Name="IdKontrahenta" Type="int" Nullable="false" />
+          <Property Name="IdStatusuZZ" Type="int" Nullable="false" />
+          <Property Name="IdTypuTransakcji" Type="int" Nullable="false" />
+          <Property Name="IdSposobuDostawy" Type="int" Nullable="false" />
+          <Property Name="IdRodzajuTransportu" Type="int" Nullable="false" />
+          <Property Name="IdSposobuPlatnosci" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Adresy__IdKontra__267ABA7A">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adresy">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ceny__IdProduktu__59FA5E80">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="Ceny" Type="Self.Ceny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ceny">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ceny__IdTypuCeny__5AEE82B9">
+          <End Role="TypyCen" Type="Self.TypyCen" Multiplicity="1" />
+          <End Role="Ceny" Type="Self.Ceny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyCen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ceny">
+              <PropertyRef Name="IdTypuCeny" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZl__IdPro__440B1D61">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="PozycjeZleceniaZakupu" Type="Self.PozycjeZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PozycjeZleceniaZakupu">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZl__IdZle__4316F928">
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="1" />
+          <End Role="PozycjeZleceniaZakupu" Type="Self.PozycjeZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaZakupu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PozycjeZleceniaZakupu">
+              <PropertyRef Name="IdZleceniaZakupu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produkty__IdDost__2E1BDC42">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1" />
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produkty">
+              <PropertyRef Name="IdDostawcy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produkty__IdJedn__2D27B809">
+          <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="1" />
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JednostkiMiary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produkty">
+              <PropertyRef Name="IdJednostkaMiary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produkty__IdKodu__2F10007B">
+          <End Role="KodyPcn" Type="Self.KodyPcn" Multiplicity="0..1" />
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KodyPcn">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produkty">
+              <PropertyRef Name="IdKoduPcn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProduktyU__IdPro__5535A963">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="ProduktyUboczneZleceniaKompletacji" Type="Self.ProduktyUboczneZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduktyUboczneZleceniaKompletacji">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProduktyU__IdZle__5441852A">
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="1" />
+          <End Role="ProduktyUboczneZleceniaKompletacji" Type="Self.ProduktyUboczneZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaKompletacji">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduktyUboczneZleceniaKompletacji">
+              <PropertyRef Name="IdZleceniaKompletacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skladniki__IdPro__5165187F">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="SkladnikiZleceniaKompletacji" Type="Self.SkladnikiZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkladnikiZleceniaKompletacji">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skladniki__IdZle__5070F446">
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="1" />
+          <End Role="SkladnikiZleceniaKompletacji" Type="Self.SkladnikiZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaKompletacji">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkladnikiZleceniaKompletacji">
+              <PropertyRef Name="IdZleceniaKompletacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TerminyPl__IdZle__5DCAEF64">
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="1" />
+          <End Role="TerminyPlatnosciOdroczonej" Type="Self.TerminyPlatnosciOdroczonej" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaZakupu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TerminyPlatnosciOdroczonej">
+              <PropertyRef Name="IdZleceniaZakupu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdKon__4AB81AF0">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdMon__4CA06362">
+          <End Role="Monterzy" Type="Self.Monterzy" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monterzy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdMontera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdPro__4BAC3F29">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdSta__4D94879B">
+          <End Role="StatusyZK" Type="Self.StatusyZK" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusyZK">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdStatusuZK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdKon__3B75D760">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdRod__3F466844">
+          <End Role="RodzajeTransportu" Type="Self.RodzajeTransportu" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajeTransportu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdRodzajuTransportu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdSpo__3E52440B">
+          <End Role="SposobyDostawy" Type="Self.SposobyDostawy" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobyDostawy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdSposobuDostawy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdSpo__403A8C7D">
+          <End Role="SposobyPlatnosci" Type="Self.SposobyPlatnosci" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobyPlatnosci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdSposobuPlatnosci" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdSta__3C69FB99">
+          <End Role="StatusyZZ" Type="Self.StatusyZZ" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusyZZ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdStatusuZZ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdTyp__3D5E1FD2">
+          <End Role="TypyTransakcji" Type="Self.TypyTransakcji" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyTransakcji">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdTypuTransakcji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FirmaDB2ModelStoreContainer">
+          <EntitySet Name="Adresy" EntityType="Self.Adresy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ceny" EntityType="Self.Ceny" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JednostkiMiary" EntityType="Self.JednostkiMiary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KodyPcn" EntityType="Self.KodyPcn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monterzy" EntityType="Self.Monterzy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PozycjeZleceniaZakupu" EntityType="Self.PozycjeZleceniaZakupu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produkty" EntityType="Self.Produkty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProduktyUboczneZleceniaKompletacji" EntityType="Self.ProduktyUboczneZleceniaKompletacji" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzajeTransportu" EntityType="Self.RodzajeTransportu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkladnikiZleceniaKompletacji" EntityType="Self.SkladnikiZleceniaKompletacji" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SposobyDostawy" EntityType="Self.SposobyDostawy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SposobyPlatnosci" EntityType="Self.SposobyPlatnosci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusyZK" EntityType="Self.StatusyZK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusyZZ" EntityType="Self.StatusyZZ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TerminyPlatnosciOdroczonej" EntityType="Self.TerminyPlatnosciOdroczonej" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypyCen" EntityType="Self.TypyCen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypyTransakcji" EntityType="Self.TypyTransakcji" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZleceniaKompletacji" EntityType="Self.ZleceniaKompletacji" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZleceniaZakupu" EntityType="Self.ZleceniaZakupu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Adresy__IdKontra__267ABA7A" Association="Self.FK__Adresy__IdKontra__267ABA7A">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Adresy" EntitySet="Adresy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ceny__IdProduktu__59FA5E80" Association="Self.FK__Ceny__IdProduktu__59FA5E80">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="Ceny" EntitySet="Ceny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ceny__IdTypuCeny__5AEE82B9" Association="Self.FK__Ceny__IdTypuCeny__5AEE82B9">
+            <End Role="TypyCen" EntitySet="TypyCen" />
+            <End Role="Ceny" EntitySet="Ceny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZl__IdPro__440B1D61" Association="Self.FK__PozycjeZl__IdPro__440B1D61">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="PozycjeZleceniaZakupu" EntitySet="PozycjeZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZl__IdZle__4316F928" Association="Self.FK__PozycjeZl__IdZle__4316F928">
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+            <End Role="PozycjeZleceniaZakupu" EntitySet="PozycjeZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produkty__IdDost__2E1BDC42" Association="Self.FK__Produkty__IdDost__2E1BDC42">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Produkty" EntitySet="Produkty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produkty__IdJedn__2D27B809" Association="Self.FK__Produkty__IdJedn__2D27B809">
+            <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+            <End Role="Produkty" EntitySet="Produkty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produkty__IdKodu__2F10007B" Association="Self.FK__Produkty__IdKodu__2F10007B">
+            <End Role="KodyPcn" EntitySet="KodyPcn" />
+            <End Role="Produkty" EntitySet="Produkty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduktyU__IdPro__5535A963" Association="Self.FK__ProduktyU__IdPro__5535A963">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="ProduktyUboczneZleceniaKompletacji" EntitySet="ProduktyUboczneZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduktyU__IdZle__5441852A" Association="Self.FK__ProduktyU__IdZle__5441852A">
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+            <End Role="ProduktyUboczneZleceniaKompletacji" EntitySet="ProduktyUboczneZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skladniki__IdPro__5165187F" Association="Self.FK__Skladniki__IdPro__5165187F">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="SkladnikiZleceniaKompletacji" EntitySet="SkladnikiZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skladniki__IdZle__5070F446" Association="Self.FK__Skladniki__IdZle__5070F446">
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+            <End Role="SkladnikiZleceniaKompletacji" EntitySet="SkladnikiZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TerminyPl__IdZle__5DCAEF64" Association="Self.FK__TerminyPl__IdZle__5DCAEF64">
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+            <End Role="TerminyPlatnosciOdroczonej" EntitySet="TerminyPlatnosciOdroczonej" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdKon__4AB81AF0" Association="Self.FK__ZleceniaK__IdKon__4AB81AF0">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdMon__4CA06362" Association="Self.FK__ZleceniaK__IdMon__4CA06362">
+            <End Role="Monterzy" EntitySet="Monterzy" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdPro__4BAC3F29" Association="Self.FK__ZleceniaK__IdPro__4BAC3F29">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdSta__4D94879B" Association="Self.FK__ZleceniaK__IdSta__4D94879B">
+            <End Role="StatusyZK" EntitySet="StatusyZK" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdKon__3B75D760" Association="Self.FK__ZleceniaZ__IdKon__3B75D760">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdRod__3F466844" Association="Self.FK__ZleceniaZ__IdRod__3F466844">
+            <End Role="RodzajeTransportu" EntitySet="RodzajeTransportu" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdSpo__3E52440B" Association="Self.FK__ZleceniaZ__IdSpo__3E52440B">
+            <End Role="SposobyDostawy" EntitySet="SposobyDostawy" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdSpo__403A8C7D" Association="Self.FK__ZleceniaZ__IdSpo__403A8C7D">
+            <End Role="SposobyPlatnosci" EntitySet="SposobyPlatnosci" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdSta__3C69FB99" Association="Self.FK__ZleceniaZ__IdSta__3C69FB99">
+            <End Role="StatusyZZ" EntitySet="StatusyZZ" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdTyp__3D5E1FD2" Association="Self.FK__ZleceniaZ__IdTyp__3D5E1FD2">
+            <End Role="TypyTransakcji" EntitySet="TypyTransakcji" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FirmaDB2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adresy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdKontrahenta" Type="Int32" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="KodPoczowy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kraj" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Siedziba" Type="Boolean" Nullable="false" />
+          <Property Name="Wysylkowy" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK__Adresy__IdKontra__267ABA7A" FromRole="Adresy" ToRole="Kontrahenci" />
+        </EntityType>
+        <EntityType Name="Ceny">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdProduktu" Type="Int32" Nullable="false" />
+          <Property Name="IdTypuCeny" Type="Int32" Nullable="false" />
+          <Property Name="Wartosc" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Waluta" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__Ceny__IdProduktu__59FA5E80" FromRole="Ceny" ToRole="Produkty" />
+          <NavigationProperty Name="TypyCen" Relationship="Self.FK__Ceny__IdTypuCeny__5AEE82B9" FromRole="Ceny" ToRole="TypyCen" />
+        </EntityType>
+        <EntityType Name="JednostkiMiary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__Produkty__IdJedn__2D27B809" FromRole="JednostkiMiary" ToRole="Produkty" />
+        </EntityType>
+        <EntityType Name="KodyPcn">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__Produkty__IdKodu__2F10007B" FromRole="KodyPcn" ToRole="Produkty" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nip" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Dostawca" Type="Boolean" Nullable="false" />
+          <Property Name="Odbiorca" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Adresy" Relationship="Self.FK__Adresy__IdKontra__267ABA7A" FromRole="Kontrahenci" ToRole="Adresy" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__Produkty__IdDost__2E1BDC42" FromRole="Kontrahenci" ToRole="Produkty" />
+          <NavigationProperty Name="ZleceniaKompletacji" Relationship="Self.FK__ZleceniaK__IdKon__4AB81AF0" FromRole="Kontrahenci" ToRole="ZleceniaKompletacji" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__ZleceniaZ__IdKon__3B75D760" FromRole="Kontrahenci" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="Monterzy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaKompletacji" Relationship="Self.FK__ZleceniaK__IdMon__4CA06362" FromRole="Monterzy" ToRole="ZleceniaKompletacji" />
+        </EntityType>
+        <EntityType Name="PozycjeZleceniaZakupu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdZleceniaZakupu" Type="Int32" Nullable="false" />
+          <Property Name="IdProduktu" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Rabat" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DataRealizacji" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__PozycjeZl__IdPro__440B1D61" FromRole="PozycjeZleceniaZakupu" ToRole="Produkty" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__PozycjeZl__IdZle__4316F928" FromRole="PozycjeZleceniaZakupu" ToRole="ZleceniaZakupu" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Produkty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DodatkowaNazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IdJednostkaMiary" Type="Int32" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SWWPKWiU" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="TypProduktu" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StawkaVatZakupu" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StawkaVatSprzedazy" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IdDostawcy" Type="Int32" />
+          <Property Name="Producent" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Marka" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="StawkaCla" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="StawkaAkcyzy" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IdKoduPcn" Type="Int32" />
+          <Property Name="KrajPochodzenia" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ceny" Relationship="Self.FK__Ceny__IdProduktu__59FA5E80" FromRole="Produkty" ToRole="Ceny" />
+          <NavigationProperty Name="JednostkiMiary" Relationship="Self.FK__Produkty__IdJedn__2D27B809" FromRole="Produkty" ToRole="JednostkiMiary" />
+          <NavigationProperty Name="KodyPcn" Relationship="Self.FK__Produkty__IdKodu__2F10007B" FromRole="Produkty" ToRole="KodyPcn" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK__Produkty__IdDost__2E1BDC42" FromRole="Produkty" ToRole="Kontrahenci" />
+          <NavigationProperty Name="PozycjeZleceniaZakupu" Relationship="Self.FK__PozycjeZl__IdPro__440B1D61" FromRole="Produkty" ToRole="PozycjeZleceniaZakupu" />
+          <NavigationProperty Name="ProduktyUboczneZleceniaKompletacji" Relationship="Self.FK__ProduktyU__IdPro__5535A963" FromRole="Produkty" ToRole="ProduktyUboczneZleceniaKompletacji" />
+          <NavigationProperty Name="SkladnikiZleceniaKompletacji" Relationship="Self.FK__Skladniki__IdPro__5165187F" FromRole="Produkty" ToRole="SkladnikiZleceniaKompletacji" />
+          <NavigationProperty Name="ZleceniaKompletacji" Relationship="Self.FK__ZleceniaK__IdPro__4BAC3F29" FromRole="Produkty" ToRole="ZleceniaKompletacji" />
+        </EntityType>
+        <EntityType Name="ProduktyUboczneZleceniaKompletacji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdZleceniaKompletacji" Type="Int32" Nullable="false" />
+          <Property Name="IdProduktu" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__ProduktyU__IdPro__5535A963" FromRole="ProduktyUboczneZleceniaKompletacji" ToRole="Produkty" />
+          <NavigationProperty Name="ZleceniaKompletacji" Relationship="Self.FK__ProduktyU__IdZle__5441852A" FromRole="ProduktyUboczneZleceniaKompletacji" ToRole="ZleceniaKompletacji" />
+        </EntityType>
+        <EntityType Name="RodzajeTransportu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__ZleceniaZ__IdRod__3F466844" FromRole="RodzajeTransportu" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="SkladnikiZleceniaKompletacji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdZleceniaKompletacji" Type="Int32" Nullable="false" />
+          <Property Name="IdProduktu" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__Skladniki__IdPro__5165187F" FromRole="SkladnikiZleceniaKompletacji" ToRole="Produkty" />
+          <NavigationProperty Name="ZleceniaKompletacji" Relationship="Self.FK__Skladniki__IdZle__5070F446" FromRole="SkladnikiZleceniaKompletacji" ToRole="ZleceniaKompletacji" />
+        </EntityType>
+        <EntityType Name="SposobyDostawy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__ZleceniaZ__IdSpo__3E52440B" FromRole="SposobyDostawy" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="SposobyPlatnosci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__ZleceniaZ__IdSpo__403A8C7D" FromRole="SposobyPlatnosci" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="StatusyZK">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaKompletacji" Relationship="Self.FK__ZleceniaK__IdSta__4D94879B" FromRole="StatusyZK" ToRole="ZleceniaKompletacji" />
+        </EntityType>
+        <EntityType Name="StatusyZZ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__ZleceniaZ__IdSta__3C69FB99" FromRole="StatusyZZ" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="TerminyPlatnosciOdroczonej">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdZleceniaZakupu" Type="Int32" Nullable="false" />
+          <Property Name="IloscDni" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__TerminyPl__IdZle__5DCAEF64" FromRole="TerminyPlatnosciOdroczonej" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="TypyCen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Ceny" Relationship="Self.FK__Ceny__IdTypuCeny__5AEE82B9" FromRole="TypyCen" ToRole="Ceny" />
+        </EntityType>
+        <EntityType Name="TypyTransakcji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ZleceniaZakupu" Relationship="Self.FK__ZleceniaZ__IdTyp__3D5E1FD2" FromRole="TypyTransakcji" ToRole="ZleceniaZakupu" />
+        </EntityType>
+        <EntityType Name="ZleceniaKompletacji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdKontrahenta" Type="Int32" Nullable="false" />
+          <Property Name="OczekiwanaDataRealizacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PotwierdzonaDataRealizacji" Type="DateTime" Precision="3" />
+          <Property Name="IdProduktu" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IdMontera" Type="Int32" Nullable="false" />
+          <Property Name="Priorytet" Type="Int32" Nullable="false" />
+          <Property Name="IdStatusuZK" Type="Int32" Nullable="false" />
+          <Property Name="CzasZlecenia" Type="Time" Precision="7" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK__ZleceniaK__IdKon__4AB81AF0" FromRole="ZleceniaKompletacji" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Monterzy" Relationship="Self.FK__ZleceniaK__IdMon__4CA06362" FromRole="ZleceniaKompletacji" ToRole="Monterzy" />
+          <NavigationProperty Name="Produkty" Relationship="Self.FK__ZleceniaK__IdPro__4BAC3F29" FromRole="ZleceniaKompletacji" ToRole="Produkty" />
+          <NavigationProperty Name="ProduktyUboczneZleceniaKompletacji" Relationship="Self.FK__ProduktyU__IdZle__5441852A" FromRole="ZleceniaKompletacji" ToRole="ProduktyUboczneZleceniaKompletacji" />
+          <NavigationProperty Name="SkladnikiZleceniaKompletacji" Relationship="Self.FK__Skladniki__IdZle__5070F446" FromRole="ZleceniaKompletacji" ToRole="SkladnikiZleceniaKompletacji" />
+          <NavigationProperty Name="StatusyZK" Relationship="Self.FK__ZleceniaK__IdSta__4D94879B" FromRole="ZleceniaKompletacji" ToRole="StatusyZK" />
+        </EntityType>
+        <EntityType Name="ZleceniaZakupu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tytul" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <Property Name="Notatki" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataUtworzenia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataModyfikacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NrOferty" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Potwierdzone" Type="Boolean" Nullable="false" />
+          <Property Name="NrPotwierdzenia" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="IdKontrahenta" Type="Int32" Nullable="false" />
+          <Property Name="IdStatusuZZ" Type="Int32" Nullable="false" />
+          <Property Name="IdTypuTransakcji" Type="Int32" Nullable="false" />
+          <Property Name="IdSposobuDostawy" Type="Int32" Nullable="false" />
+          <Property Name="IdRodzajuTransportu" Type="Int32" Nullable="false" />
+          <Property Name="IdSposobuPlatnosci" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.FK__ZleceniaZ__IdKon__3B75D760" FromRole="ZleceniaZakupu" ToRole="Kontrahenci" />
+          <NavigationProperty Name="PozycjeZleceniaZakupu" Relationship="Self.FK__PozycjeZl__IdZle__4316F928" FromRole="ZleceniaZakupu" ToRole="PozycjeZleceniaZakupu" />
+          <NavigationProperty Name="RodzajeTransportu" Relationship="Self.FK__ZleceniaZ__IdRod__3F466844" FromRole="ZleceniaZakupu" ToRole="RodzajeTransportu" />
+          <NavigationProperty Name="SposobyDostawy" Relationship="Self.FK__ZleceniaZ__IdSpo__3E52440B" FromRole="ZleceniaZakupu" ToRole="SposobyDostawy" />
+          <NavigationProperty Name="SposobyPlatnosci" Relationship="Self.FK__ZleceniaZ__IdSpo__403A8C7D" FromRole="ZleceniaZakupu" ToRole="SposobyPlatnosci" />
+          <NavigationProperty Name="StatusyZZ" Relationship="Self.FK__ZleceniaZ__IdSta__3C69FB99" FromRole="ZleceniaZakupu" ToRole="StatusyZZ" />
+          <NavigationProperty Name="TerminyPlatnosciOdroczonej" Relationship="Self.FK__TerminyPl__IdZle__5DCAEF64" FromRole="ZleceniaZakupu" ToRole="TerminyPlatnosciOdroczonej" />
+          <NavigationProperty Name="TypyTransakcji" Relationship="Self.FK__ZleceniaZ__IdTyp__3D5E1FD2" FromRole="ZleceniaZakupu" ToRole="TypyTransakcji" />
+        </EntityType>
+        <Association Name="FK__Adresy__IdKontra__267ABA7A">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adresy">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ceny__IdProduktu__59FA5E80">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="Ceny" Type="Self.Ceny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ceny">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ceny__IdTypuCeny__5AEE82B9">
+          <End Role="TypyCen" Type="Self.TypyCen" Multiplicity="1" />
+          <End Role="Ceny" Type="Self.Ceny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyCen">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ceny">
+              <PropertyRef Name="IdTypuCeny" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produkty__IdJedn__2D27B809">
+          <End Role="JednostkiMiary" Type="Self.JednostkiMiary" Multiplicity="1" />
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JednostkiMiary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produkty">
+              <PropertyRef Name="IdJednostkaMiary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produkty__IdKodu__2F10007B">
+          <End Role="KodyPcn" Type="Self.KodyPcn" Multiplicity="0..1" />
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KodyPcn">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produkty">
+              <PropertyRef Name="IdKoduPcn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produkty__IdDost__2E1BDC42">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1" />
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produkty">
+              <PropertyRef Name="IdDostawcy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdKon__4AB81AF0">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdKon__3B75D760">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdMon__4CA06362">
+          <End Role="Monterzy" Type="Self.Monterzy" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monterzy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdMontera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZl__IdPro__440B1D61">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="PozycjeZleceniaZakupu" Type="Self.PozycjeZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PozycjeZleceniaZakupu">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZl__IdZle__4316F928">
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="1" />
+          <End Role="PozycjeZleceniaZakupu" Type="Self.PozycjeZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaZakupu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PozycjeZleceniaZakupu">
+              <PropertyRef Name="IdZleceniaZakupu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProduktyU__IdPro__5535A963">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="ProduktyUboczneZleceniaKompletacji" Type="Self.ProduktyUboczneZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduktyUboczneZleceniaKompletacji">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skladniki__IdPro__5165187F">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="SkladnikiZleceniaKompletacji" Type="Self.SkladnikiZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkladnikiZleceniaKompletacji">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdPro__4BAC3F29">
+          <End Role="Produkty" Type="Self.Produkty" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdProduktu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProduktyU__IdZle__5441852A">
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="1" />
+          <End Role="ProduktyUboczneZleceniaKompletacji" Type="Self.ProduktyUboczneZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaKompletacji">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduktyUboczneZleceniaKompletacji">
+              <PropertyRef Name="IdZleceniaKompletacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdRod__3F466844">
+          <End Role="RodzajeTransportu" Type="Self.RodzajeTransportu" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajeTransportu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdRodzajuTransportu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skladniki__IdZle__5070F446">
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="1" />
+          <End Role="SkladnikiZleceniaKompletacji" Type="Self.SkladnikiZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaKompletacji">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkladnikiZleceniaKompletacji">
+              <PropertyRef Name="IdZleceniaKompletacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdSpo__3E52440B">
+          <End Role="SposobyDostawy" Type="Self.SposobyDostawy" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobyDostawy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdSposobuDostawy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdSpo__403A8C7D">
+          <End Role="SposobyPlatnosci" Type="Self.SposobyPlatnosci" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobyPlatnosci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdSposobuPlatnosci" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaK__IdSta__4D94879B">
+          <End Role="StatusyZK" Type="Self.StatusyZK" Multiplicity="1" />
+          <End Role="ZleceniaKompletacji" Type="Self.ZleceniaKompletacji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusyZK">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaKompletacji">
+              <PropertyRef Name="IdStatusuZK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdSta__3C69FB99">
+          <End Role="StatusyZZ" Type="Self.StatusyZZ" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusyZZ">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdStatusuZZ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TerminyPl__IdZle__5DCAEF64">
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="1" />
+          <End Role="TerminyPlatnosciOdroczonej" Type="Self.TerminyPlatnosciOdroczonej" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZleceniaZakupu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TerminyPlatnosciOdroczonej">
+              <PropertyRef Name="IdZleceniaZakupu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ZleceniaZ__IdTyp__3D5E1FD2">
+          <End Role="TypyTransakcji" Type="Self.TypyTransakcji" Multiplicity="1" />
+          <End Role="ZleceniaZakupu" Type="Self.ZleceniaZakupu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyTransakcji">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZleceniaZakupu">
+              <PropertyRef Name="IdTypuTransakcji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FirmaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresy" EntityType="Self.Adresy" />
+          <EntitySet Name="Ceny" EntityType="Self.Ceny" />
+          <EntitySet Name="JednostkiMiary" EntityType="Self.JednostkiMiary" />
+          <EntitySet Name="KodyPcn" EntityType="Self.KodyPcn" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" />
+          <EntitySet Name="Monterzy" EntityType="Self.Monterzy" />
+          <EntitySet Name="PozycjeZleceniaZakupu" EntityType="Self.PozycjeZleceniaZakupu" />
+          <EntitySet Name="Produkty" EntityType="Self.Produkty" />
+          <EntitySet Name="ProduktyUboczneZleceniaKompletacji" EntityType="Self.ProduktyUboczneZleceniaKompletacji" />
+          <EntitySet Name="RodzajeTransportu" EntityType="Self.RodzajeTransportu" />
+          <EntitySet Name="SkladnikiZleceniaKompletacji" EntityType="Self.SkladnikiZleceniaKompletacji" />
+          <EntitySet Name="SposobyDostawy" EntityType="Self.SposobyDostawy" />
+          <EntitySet Name="SposobyPlatnosci" EntityType="Self.SposobyPlatnosci" />
+          <EntitySet Name="StatusyZK" EntityType="Self.StatusyZK" />
+          <EntitySet Name="StatusyZZ" EntityType="Self.StatusyZZ" />
+          <EntitySet Name="TerminyPlatnosciOdroczonej" EntityType="Self.TerminyPlatnosciOdroczonej" />
+          <EntitySet Name="TypyCen" EntityType="Self.TypyCen" />
+          <EntitySet Name="TypyTransakcji" EntityType="Self.TypyTransakcji" />
+          <EntitySet Name="ZleceniaKompletacji" EntityType="Self.ZleceniaKompletacji" />
+          <EntitySet Name="ZleceniaZakupu" EntityType="Self.ZleceniaZakupu" />
+          <AssociationSet Name="FK__Adresy__IdKontra__267ABA7A" Association="Self.FK__Adresy__IdKontra__267ABA7A">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Adresy" EntitySet="Adresy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ceny__IdProduktu__59FA5E80" Association="Self.FK__Ceny__IdProduktu__59FA5E80">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="Ceny" EntitySet="Ceny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ceny__IdTypuCeny__5AEE82B9" Association="Self.FK__Ceny__IdTypuCeny__5AEE82B9">
+            <End Role="TypyCen" EntitySet="TypyCen" />
+            <End Role="Ceny" EntitySet="Ceny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produkty__IdJedn__2D27B809" Association="Self.FK__Produkty__IdJedn__2D27B809">
+            <End Role="JednostkiMiary" EntitySet="JednostkiMiary" />
+            <End Role="Produkty" EntitySet="Produkty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produkty__IdKodu__2F10007B" Association="Self.FK__Produkty__IdKodu__2F10007B">
+            <End Role="KodyPcn" EntitySet="KodyPcn" />
+            <End Role="Produkty" EntitySet="Produkty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produkty__IdDost__2E1BDC42" Association="Self.FK__Produkty__IdDost__2E1BDC42">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Produkty" EntitySet="Produkty" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdKon__4AB81AF0" Association="Self.FK__ZleceniaK__IdKon__4AB81AF0">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdKon__3B75D760" Association="Self.FK__ZleceniaZ__IdKon__3B75D760">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdMon__4CA06362" Association="Self.FK__ZleceniaK__IdMon__4CA06362">
+            <End Role="Monterzy" EntitySet="Monterzy" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZl__IdPro__440B1D61" Association="Self.FK__PozycjeZl__IdPro__440B1D61">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="PozycjeZleceniaZakupu" EntitySet="PozycjeZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZl__IdZle__4316F928" Association="Self.FK__PozycjeZl__IdZle__4316F928">
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+            <End Role="PozycjeZleceniaZakupu" EntitySet="PozycjeZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduktyU__IdPro__5535A963" Association="Self.FK__ProduktyU__IdPro__5535A963">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="ProduktyUboczneZleceniaKompletacji" EntitySet="ProduktyUboczneZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skladniki__IdPro__5165187F" Association="Self.FK__Skladniki__IdPro__5165187F">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="SkladnikiZleceniaKompletacji" EntitySet="SkladnikiZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdPro__4BAC3F29" Association="Self.FK__ZleceniaK__IdPro__4BAC3F29">
+            <End Role="Produkty" EntitySet="Produkty" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduktyU__IdZle__5441852A" Association="Self.FK__ProduktyU__IdZle__5441852A">
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+            <End Role="ProduktyUboczneZleceniaKompletacji" EntitySet="ProduktyUboczneZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdRod__3F466844" Association="Self.FK__ZleceniaZ__IdRod__3F466844">
+            <End Role="RodzajeTransportu" EntitySet="RodzajeTransportu" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skladniki__IdZle__5070F446" Association="Self.FK__Skladniki__IdZle__5070F446">
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+            <End Role="SkladnikiZleceniaKompletacji" EntitySet="SkladnikiZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdSpo__3E52440B" Association="Self.FK__ZleceniaZ__IdSpo__3E52440B">
+            <End Role="SposobyDostawy" EntitySet="SposobyDostawy" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdSpo__403A8C7D" Association="Self.FK__ZleceniaZ__IdSpo__403A8C7D">
+            <End Role="SposobyPlatnosci" EntitySet="SposobyPlatnosci" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaK__IdSta__4D94879B" Association="Self.FK__ZleceniaK__IdSta__4D94879B">
+            <End Role="StatusyZK" EntitySet="StatusyZK" />
+            <End Role="ZleceniaKompletacji" EntitySet="ZleceniaKompletacji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdSta__3C69FB99" Association="Self.FK__ZleceniaZ__IdSta__3C69FB99">
+            <End Role="StatusyZZ" EntitySet="StatusyZZ" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TerminyPl__IdZle__5DCAEF64" Association="Self.FK__TerminyPl__IdZle__5DCAEF64">
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+            <End Role="TerminyPlatnosciOdroczonej" EntitySet="TerminyPlatnosciOdroczonej" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ZleceniaZ__IdTyp__3D5E1FD2" Association="Self.FK__ZleceniaZ__IdTyp__3D5E1FD2">
+            <End Role="TypyTransakcji" EntitySet="TypyTransakcji" />
+            <End Role="ZleceniaZakupu" EntitySet="ZleceniaZakupu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FirmaDB2ModelStoreContainer" CdmEntityContainer="FirmaDBEntities">
+          <EntitySetMapping Name="Adresy">
+            <EntityTypeMapping TypeName="FirmaDB2Model.Adresy">
+              <MappingFragment StoreEntitySet="Adresy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdKontrahenta" ColumnName="IdKontrahenta" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="KodPoczowy" ColumnName="KodPoczowy" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+                <ScalarProperty Name="Siedziba" ColumnName="Siedziba" />
+                <ScalarProperty Name="Wysylkowy" ColumnName="Wysylkowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ceny">
+            <EntityTypeMapping TypeName="FirmaDB2Model.Ceny">
+              <MappingFragment StoreEntitySet="Ceny">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdProduktu" ColumnName="IdProduktu" />
+                <ScalarProperty Name="IdTypuCeny" ColumnName="IdTypuCeny" />
+                <ScalarProperty Name="Wartosc" ColumnName="Wartosc" />
+                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JednostkiMiary">
+            <EntityTypeMapping TypeName="FirmaDB2Model.JednostkiMiary">
+              <MappingFragment StoreEntitySet="JednostkiMiary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KodyPcn">
+            <EntityTypeMapping TypeName="FirmaDB2Model.KodyPcn">
+              <MappingFragment StoreEntitySet="KodyPcn">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kontrahenci">
+            <EntityTypeMapping TypeName="FirmaDB2Model.Kontrahenci">
+              <MappingFragment StoreEntitySet="Kontrahenci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Nip" ColumnName="Nip" />
+                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
+                <ScalarProperty Name="Odbiorca" ColumnName="Odbiorca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monterzy">
+            <EntityTypeMapping TypeName="FirmaDB2Model.Monterzy">
+              <MappingFragment StoreEntitySet="Monterzy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PozycjeZleceniaZakupu">
+            <EntityTypeMapping TypeName="FirmaDB2Model.PozycjeZleceniaZakupu">
+              <MappingFragment StoreEntitySet="PozycjeZleceniaZakupu">
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdZleceniaZakupu" ColumnName="IdZleceniaZakupu" />
+                <ScalarProperty Name="IdProduktu" ColumnName="IdProduktu" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+                <ScalarProperty Name="DataRealizacji" ColumnName="DataRealizacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produkty">
+            <EntityTypeMapping TypeName="FirmaDB2Model.Produkty">
+              <MappingFragment StoreEntitySet="Produkty">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="DodatkowaNazwa" ColumnName="DodatkowaNazwa" />
+                <ScalarProperty Name="IdJednostkaMiary" ColumnName="IdJednostkaMiary" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="SWWPKWiU" ColumnName="SWWPKWiU" />
+                <ScalarProperty Name="TypProduktu" ColumnName="TypProduktu" />
+                <ScalarProperty Name="StawkaVatZakupu" ColumnName="StawkaVatZakupu" />
+                <ScalarProperty Name="StawkaVatSprzedazy" ColumnName="StawkaVatSprzedazy" />
+                <ScalarProperty Name="IdDostawcy" ColumnName="IdDostawcy" />
+                <ScalarProperty Name="Producent" ColumnName="Producent" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="StawkaCla" ColumnName="StawkaCla" />
+                <ScalarProperty Name="StawkaAkcyzy" ColumnName="StawkaAkcyzy" />
+                <ScalarProperty Name="IdKoduPcn" ColumnName="IdKoduPcn" />
+                <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProduktyUboczneZleceniaKompletacji">
+            <EntityTypeMapping TypeName="FirmaDB2Model.ProduktyUboczneZleceniaKompletacji">
+              <MappingFragment StoreEntitySet="ProduktyUboczneZleceniaKompletacji">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdZleceniaKompletacji" ColumnName="IdZleceniaKompletacji" />
+                <ScalarProperty Name="IdProduktu" ColumnName="IdProduktu" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzajeTransportu">
+            <EntityTypeMapping TypeName="FirmaDB2Model.RodzajeTransportu">
+              <MappingFragment StoreEntitySet="RodzajeTransportu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkladnikiZleceniaKompletacji">
+            <EntityTypeMapping TypeName="FirmaDB2Model.SkladnikiZleceniaKompletacji">
+              <MappingFragment StoreEntitySet="SkladnikiZleceniaKompletacji">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdZleceniaKompletacji" ColumnName="IdZleceniaKompletacji" />
+                <ScalarProperty Name="IdProduktu" ColumnName="IdProduktu" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SposobyDostawy">
+            <EntityTypeMapping TypeName="FirmaDB2Model.SposobyDostawy">
+              <MappingFragment StoreEntitySet="SposobyDostawy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SposobyPlatnosci">
+            <EntityTypeMapping TypeName="FirmaDB2Model.SposobyPlatnosci">
+              <MappingFragment StoreEntitySet="SposobyPlatnosci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusyZK">
+            <EntityTypeMapping TypeName="FirmaDB2Model.StatusyZK">
+              <MappingFragment StoreEntitySet="StatusyZK">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusyZZ">
+            <EntityTypeMapping TypeName="FirmaDB2Model.StatusyZZ">
+              <MappingFragment StoreEntitySet="StatusyZZ">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TerminyPlatnosciOdroczonej">
+            <EntityTypeMapping TypeName="FirmaDB2Model.TerminyPlatnosciOdroczonej">
+              <MappingFragment StoreEntitySet="TerminyPlatnosciOdroczonej">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdZleceniaZakupu" ColumnName="IdZleceniaZakupu" />
+                <ScalarProperty Name="IloscDni" ColumnName="IloscDni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypyCen">
+            <EntityTypeMapping TypeName="FirmaDB2Model.TypyCen">
+              <MappingFragment StoreEntitySet="TypyCen">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypyTransakcji">
+            <EntityTypeMapping TypeName="FirmaDB2Model.TypyTransakcji">
+              <MappingFragment StoreEntitySet="TypyTransakcji">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZleceniaKompletacji">
+            <EntityTypeMapping TypeName="FirmaDB2Model.ZleceniaKompletacji">
+              <MappingFragment StoreEntitySet="ZleceniaKompletacji">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="IdKontrahenta" ColumnName="IdKontrahenta" />
+                <ScalarProperty Name="OczekiwanaDataRealizacji" ColumnName="OczekiwanaDataRealizacji" />
+                <ScalarProperty Name="PotwierdzonaDataRealizacji" ColumnName="PotwierdzonaDataRealizacji" />
+                <ScalarProperty Name="IdProduktu" ColumnName="IdProduktu" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="IdMontera" ColumnName="IdMontera" />
+                <ScalarProperty Name="Priorytet" ColumnName="Priorytet" />
+                <ScalarProperty Name="IdStatusuZK" ColumnName="IdStatusuZK" />
+                <ScalarProperty Name="CzasZlecenia" ColumnName="CzasZlecenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZleceniaZakupu">
+            <EntityTypeMapping TypeName="FirmaDB2Model.ZleceniaZakupu">
+              <MappingFragment StoreEntitySet="ZleceniaZakupu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tytul" ColumnName="Tytul" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+                <ScalarProperty Name="Notatki" ColumnName="Notatki" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
+                <ScalarProperty Name="NrOferty" ColumnName="NrOferty" />
+                <ScalarProperty Name="Potwierdzone" ColumnName="Potwierdzone" />
+                <ScalarProperty Name="NrPotwierdzenia" ColumnName="NrPotwierdzenia" />
+                <ScalarProperty Name="IdKontrahenta" ColumnName="IdKontrahenta" />
+                <ScalarProperty Name="IdStatusuZZ" ColumnName="IdStatusuZZ" />
+                <ScalarProperty Name="IdTypuTransakcji" ColumnName="IdTypuTransakcji" />
+                <ScalarProperty Name="IdSposobuDostawy" ColumnName="IdSposobuDostawy" />
+                <ScalarProperty Name="IdRodzajuTransportu" ColumnName="IdRodzajuTransportu" />
+                <ScalarProperty Name="IdSposobuPlatnosci" ColumnName="IdSposobuPlatnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

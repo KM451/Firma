@@ -1,0 +1,432 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:resx="clr-namespace:Firma.ViewResources"
+    xmlns:local="clr-namespace:Firma.Views">
+
+    <Style x:Key="TextBoxGZ" TargetType="{x:Type TextBox}">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="BorderBrush" Value="#FF134216"/>
+        <Setter Property="Foreground" Value="#FF102313"/>
+        <Setter Property="Background" Value="#FFF9FBF3"/>
+        <Setter Property="SelectionBrush" Value="LightGreen"/>
+    </Style>
+    <Style x:Key="RadioButtonCenter" TargetType="{x:Type RadioButton}">
+        <Setter Property="BorderBrush" Value="#FF134216"/>
+        <Setter Property="Foreground" Value="#FF102313"/>
+        <Setter Property="Background" Value="#FFF9FBF3"/>
+        <Setter Property="Margin" Value="2,0,0,1"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="SeparatorTlo" TargetType="{x:Type Separator}">
+        <Setter Property="Background" Value="#FFF2FBE1"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="10"/>
+    </Style>
+    <Style x:Key="ButtonIkonaMala" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Margin" Value="1"/>
+    </Style>
+    <Style x:Key="GroupBoxStandard2" TargetType="{x:Type GroupBox}">
+        <Setter Property="BorderBrush" Value="#FF134216"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Height" Value="50"/>
+    </Style>
+    <Style x:Key="CheckBox3" TargetType="{x:Type CheckBox}">
+        <Setter Property="BorderBrush" Value="#FF134216"/>
+        <Setter Property="Foreground" Value="#FF102313"/>
+        <Setter Property="Background" Value="#FFF9FBF3"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="ComboBoxAuto" TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="#FFF9FBF3"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="BorderBrush" Value="#FF134216"/>
+        <Setter Property="Foreground" Value="#FF102313"/>
+        <Setter Property="Margin" Value="1,0,1,0"/>
+        <Setter Property="Padding" Value="4,0"/>
+    </Style>
+    <Style x:Key="ComboBoxGZ1" TargetType="{x:Type ComboBox}">
+        <Setter Property="Background" Value="#FFF9FBF3"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="BorderBrush" Value="#FF134216"/>
+        <Setter Property="Foreground" Value="#FF102313"/>
+        <Setter Property="Margin" Value="1,0,1,0"/>
+        <Setter Property="Padding" Value="4,0"/>
+    </Style>
+    <Style x:Key="GridPodstawowy" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="#FFF2FBE1"/>
+    </Style>
+    <Style x:Key="StackPanelPrawy" TargetType="{x:Type StackPanel}">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    <Style x:Key="StackPanel3" TargetType="{x:Type StackPanel}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    <Style x:Key="ButtonIkona" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="BorderStandard" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="DimGray"/>
+        <Setter Property="Width" Value="1"/>
+        <Setter Property="Margin" Value="1"/>
+    </Style>
+    <Style x:Key="Grid2" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="#FFF9FBF3"/>
+        <Setter Property="Margin" Value="1,0,1,0"/>
+    </Style>
+    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF83CC6A"/>
+
+
+    <ControlTemplate x:Key="ButtonDodaj" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/add_box_FILL1_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/add_box_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ButtonFiltr" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/filter_alt_off_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/filter_alt_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+
+
+    <ControlTemplate x:Key="ButtonOdejmij" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/minus_FILL.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/minus.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ButtonZmien" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/change_circle_FILL1_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/change_circle_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonWybierz" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/check_circle_FILL1_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/check_circle_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonUsun" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/delete_FILL1_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/delete_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonAnuluj" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/cancel_FILL1_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/cancel_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonZapisz" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/save_FILL1_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/save_FILL0_wght400_GRAD0_opsz48.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonEdytuj" TargetType="{x:Type ButtonBase}">
+        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/edit_FILL1.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="false">
+                <Setter Property="Button.Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ViewResources/Icons/edit_FILL0.png"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+    <Style TargetType="{x:Type local:WszystkieViewBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:WszystkieViewBase}">
+                    <Grid Style="{StaticResource GridPodstawowy}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Grid.Row="0"/>
+                        <DockPanel  Grid.Row="1">
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                <Button Template="{DynamicResource ButtonDodaj}" Style="{StaticResource ButtonIkona}" Command="{Binding ShowAddViewCommand}" ToolTip="{x:Static resx:BaseResources.Dodaj}"/>
+                                <Button Template="{DynamicResource ButtonUsun}" Style="{StaticResource ButtonIkona}" Command="{Binding DeleteCommand}" ToolTip="{x:Static resx:BaseResources.Usun}"/>
+                                <Button Template="{DynamicResource ButtonZmien}" Style="{StaticResource ButtonIkona}" Command="{Binding RefreshViewCommand}" ToolTip="{x:Static resx:BaseResources.Odswiez}"/>
+                                <Button Template="{DynamicResource ButtonWybierz}" Style="{StaticResource ButtonIkona}" ToolTip="{x:Static resx:BaseResources.Wybierz}" Command="{Binding OpenCommand}"/>
+                                <Button Template="{DynamicResource ButtonAnuluj}" Style="{StaticResource ButtonIkona}" Command="{Binding CloseCommand}" ToolTip="{x:Static resx:BaseResources.Zamknij}"  />
+                            </StackPanel>
+                            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                                <GroupBox Header="{x:Static resx:BaseResources.Sortowanie}" Style="{StaticResource GroupBoxStandard2}">
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                        <Label Content="{x:Static resx:BaseResources.WybierzKolumne}"/>
+                                        <ComboBox  Style="{StaticResource ComboBoxGZ1}" ItemsSource="{Binding ListOfItemsOrderBy}" SelectedValue="{Binding OrderByField}" SelectedValuePath="Key" DisplayMemberPath="Value"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Separator Style="{StaticResource SeparatorTlo}" Width="10"/>
+                                            <RadioButton GroupName="TypSortowania" Content="{x:Static resx:BaseResources.Rosnaco}" Style="{StaticResource RadioButtonCenter}" IsChecked="True"/>
+                                            <Separator Style="{StaticResource SeparatorTlo}" Width="10"/>
+                                            <RadioButton GroupName="TypSortowania" Content="{x:Static resx:BaseResources.Malejaco}" Style="{StaticResource RadioButtonCenter}" IsChecked="{Binding OrderDescending}" />
+                                            <Separator Style="{StaticResource SeparatorTlo}" Width="10"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                                <GroupBox Header="{x:Static resx:BaseResources.Filtrowanie}" Style="{StaticResource GroupBoxStandard2}">
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                        <Label Content="{x:Static resx:BaseResources.WybierzKolumne}"/>
+                                        <ComboBox ItemsSource="{Binding ListOfItemsFilter}" SelectedValue="{Binding FilterField, Mode=TwoWay}" SelectedValuePath="Key" DisplayMemberPath="Value" Style="{StaticResource ComboBoxGZ1}" />
+                                        <Label Content="{x:Static resx:BaseResources.SzukanaFraza}"/>
+                                        <TextBox Text="{Binding SearchPhrase}" Style="{StaticResource TextBoxGZ}"/>
+                                        <Button Command="{Binding FilterCommand}"  Template="{DynamicResource ButtonFiltr}" Style="{StaticResource ButtonIkonaMala}" ToolTip="{x:Static resx:BaseResources.WlFiltrListy}"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
+                        </DockPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:JedenViewBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:JedenViewBase}">
+                    <Grid Style="{StaticResource GridPodstawowy}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentPresenter Grid.Column="0"/>
+                        <Border Grid.Column="1" Style="{StaticResource BorderStandard}"/>
+                        <Grid Grid.Column="2" Style="{StaticResource Grid2}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="159*" />
+                                <RowDefinition Height="151*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
+                                <Button Template="{DynamicResource ButtonZapisz}" Style="{StaticResource ButtonIkona}" ToolTip="{x:Static resx:BaseResources.Zapisz}" Command="{Binding SaveAndCloseCommand}"/>
+                                <Button Template="{DynamicResource ButtonAnuluj}" Style="{StaticResource ButtonIkona}" Command="{Binding CloseCommand}" ToolTip="{x:Static resx:BaseResources.Zamknij}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:JedenWszystkieViewBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:JedenWszystkieViewBase}">
+                    <Grid Style="{StaticResource GridPodstawowy}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentPresenter Grid.Column="0"/>
+                        <Border Grid.Column="1" Style="{StaticResource BorderStandard}"/>
+                        <Grid Grid.Column="2" Style="{StaticResource Grid2}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="159*" />
+                                <RowDefinition Height="151*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
+                                <Button Template="{DynamicResource ButtonZapisz}" Style="{StaticResource ButtonIkona}" Command="{Binding SaveAndCloseCommand}" ToolTip="{x:Static resx:BaseResources.Zapisz}" />
+                                <Button Template="{DynamicResource ButtonAnuluj}" Style="{StaticResource ButtonIkona}" Command="{Binding CloseCommand}" ToolTip="{x:Static resx:BaseResources.Zamknij}"/>
+                                <Button Template="{DynamicResource ButtonDodaj}" Style="{StaticResource ButtonIkona}" Command="{Binding ShowAddViewCommand}" ToolTip="{Binding ShowAddViewButtonContent}" Margin="0,26,0,0" />
+                                <Button Template="{DynamicResource ButtonEdytuj}" Style="{StaticResource ButtonIkona}" Command="{Binding ShowEditViewCommand}" ToolTip="{x:Static resx:BaseResources.Edycja}" />
+                                <Button Template="{DynamicResource ButtonUsun}" Style="{StaticResource ButtonIkona}" Command="{Binding DeleteCommand}" ToolTip="{x:Static resx:BaseResources.Usun}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+</ResourceDictionary>

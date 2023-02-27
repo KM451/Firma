@@ -1,0 +1,32 @@
+﻿<Window x:Class="Firma.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resx="clr-namespace:Firma.ViewResources"
+        xmlns:local="clr-namespace:Firma.Views"
+        mc:Ignorable="d"
+        Title="Informacje" Height="200" Width="400" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True" >
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </Window.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource BorderAbout}"/>
+        <Border Style="{StaticResource BorderAbout2}" Grid.Row="1">
+            <Border.Background>
+                <ImageBrush ImageSource="/ViewResources/Icons/WSB.PNG" Stretch="Uniform"/>
+            </Border.Background>
+        </Border>
+        <StackPanel Grid.Row="2">
+            <TextBlock Style="{StaticResource TextBlockAbout2}"/>
+            <TextBlock Style="{StaticResource TextBlockAbout}" Text="{x:Static resx:BaseResources.Text2}"/>
+            <TextBlock Style="{StaticResource TextBlockAbout}" Text="{x:Static resx:BaseResources.Text3}"/>
+            <TextBlock Style="{StaticResource TextBlockAbout}" Text="{x:Static resx:BaseResources.Text4}"/>
+        </StackPanel>
+    </Grid>
+</Window>
