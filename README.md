@@ -1,1 +1,1 @@
-# Firma
+# Projekt zaliczeniowy przedmiotu Projektowanie aplikacji destopowych.
